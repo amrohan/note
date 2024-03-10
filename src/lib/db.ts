@@ -32,38 +32,38 @@ class NoteDb extends Dexie {
 		});
 		// The 'notes' property is now definitely assigned
 
-		this.on('ready', () => {
-			this.notes.count().then((count) => {
-				if (count === 0) {
-					// Database is empty, populate with mock data
-					this.notes
-						.bulkAdd([
-							{
-								title: 'First Note',
-								date: '24 Jan 2024',
-								star: false,
-								archived: false,
-								isDeleted: false,
-								content: 'This is my first note.'
-							},
-							{
-								title: 'Second Note',
-								date: '25 Jan 2024',
-								star: true,
-								archived: false,
-								isDeleted: false,
-								content: 'This is my second note.'
-							}
-							// Add more notes as needed
-						])
-						.then(() => {
-							console.log('Database populated with mock data');
-						});
-				} else {
-					console.log('Database already populated');
-				}
-			});
-		});
+		// this.on('ready', () => {
+		// 	this.notes.count().then((count) => {
+		// 		if (count === 0) {
+		// 			// Database is empty, populate with mock data
+		// 			this.notes
+		// 				.bulkAdd([
+		// 					{
+		// 						title: 'First Note',
+		// 						date: '24 Jan 2024',
+		// 						star: false,
+		// 						archived: false,
+		// 						isDeleted: false,
+		// 						content: 'This is my first note.'
+		// 					},
+		// 					{
+		// 						title: 'Second Note',
+		// 						date: '25 Jan 2024',
+		// 						star: true,
+		// 						archived: false,
+		// 						isDeleted: false,
+		// 						content: 'This is my second note.'
+		// 					}
+		// 					// Add more notes as needed
+		// 				])
+		// 				.then(() => {
+		// 					console.log('Database populated with mock data');
+		// 				});
+		// 		} else {
+		// 			console.log('Database already populated');
+		// 		}
+		// 	});
+		// });
 	}
 }
 

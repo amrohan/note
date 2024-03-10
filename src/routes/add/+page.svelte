@@ -149,7 +149,7 @@
 		</div>
 	</main>
 	<textarea
-		class="w-full h-96 p-2 bg-transparent border-0 border-zinc-800 focus:outline-none placeholder-zinc-900 placeholder:text-zinc-600"
+		class="w-full max-h-svh min-h-svh p-2 bg-transparent border-0 border-zinc-800 focus:outline-none placeholder-zinc-900 placeholder:text-zinc-600"
 		placeholder="Start typing..."
 		bind:value={noteContent}
 		on:input={() => {
