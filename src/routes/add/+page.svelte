@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { db } from '$lib';
-	import { onMount } from 'svelte';
-
+	import { toast } from 'svoast';
 	let notetitle = 'Untitled';
 	let noteContent = 'default content';
 	let archivedNote = false;
@@ -20,11 +19,25 @@
 
 		if (existingNote) {
 			// update that note instead of adding it
-			await db.notes.update(existingNoteId!, note);
+			const upate = await db.notes.update(existingNoteId!, note).catch((e) => {
+				console.error('Note not found or update failed');
+				return false;
+			});
+			if (!upate) {
+				toast.error('Error updating note', { closable: true });
+				return;
+			}
 			return;
 		}
 
-		const notes = await db.notes.add(note);
+		const notes = await db.notes.add(note).catch((e) => {
+			console.error('Error adding note');
+			return false;
+		});
+		if (!notes) {
+			toast.error('Error adding note', { closable: true });
+			return;
+		}
 		existingNoteId = notes;
 		existingNote = true;
 	}

@@ -2,6 +2,7 @@
 	import { liveQuery } from 'dexie';
 	import { db } from '../lib/db';
 	import { search } from '$lib';
+	import { toast } from 'svoast';
 
 	$: notes = liveQuery(async () => {
 		const searchTerm = $search;
@@ -22,6 +23,11 @@
 	});
 
 	async function updateStar(noteId: number, value: boolean) {
+		if (value) {
+			toast.success('Note starred', { closable: true });
+		} else {
+			toast.success('Note unstarred');
+		}
 		await db.notes.update(noteId, { star: value });
 	}
 </script>

@@ -2,6 +2,7 @@
 	import { page } from '$app/stores';
 	import { db, type Note } from '$lib/db';
 	import { liveQuery } from 'dexie';
+	import { toast } from 'svoast';
 
 	$: pa = $page.params.id;
 
@@ -11,7 +12,14 @@
 	});
 
 	async function updateNote(item: Note) {
-		await db.notes.update(item.id!, item);
+		const updated = await db.notes.update(item.id!, item).catch((e) => {
+			return false;
+		});
+
+		if (!updated) {
+			toast.error('Error updating note', { closable: true });
+			console.error('Note not found or update failed');
+		}
 	}
 
 	async function updateStar(value: boolean) {
