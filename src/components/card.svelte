@@ -1,16 +1,18 @@
 <script lang="ts">
 	import { liveQuery } from 'dexie';
-	import { db } from '../lib/db';
-	import { search } from '$lib';
+	import { search, filter, db } from '$lib';
 	import { toast } from 'svoast';
 
 	$: notes = liveQuery(async () => {
 		const searchTerm = $search;
-		if (!searchTerm) {
+		const filterValue = $filter;
+
+		if (!searchTerm && filterValue === 'all') {
 			// If the search term is empty, return all notes
-			// return await db.notes.where('isDeleted').equals(0).toArray();
 			return await db.notes.filter((note) => note.isDeleted === false).toArray();
-		} else {
+		} else if (filterValue === 'starred') {
+			return await db.notes.filter((note) => note.star === true).toArray();
+		} else if (filterValue === 'all') {
 			return await db.notes
 				.filter(
 					(note) =>
@@ -26,7 +28,7 @@
 		if (value) {
 			toast.success('Note starred', { closable: true });
 		} else {
-			toast.success('Note unstarred');
+			toast.success('Note unstarred', { closable: true });
 		}
 		await db.notes.update(noteId, { star: value });
 	}

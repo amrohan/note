@@ -1,5 +1,28 @@
 <script lang="ts">
-	import { search } from '$lib/searchStore';
+	import { search, filter } from '$lib';
+
+	let star = false;
+	let showAll = false;
+	const toggleFilter = (filterType: string) => {
+		if (filterType === 'starred') {
+			star = !star;
+			showAll = false;
+			if (star) filter.set('starred');
+			else filter.set('all');
+		} else if (filterType === 'all') {
+			showAll = !showAll;
+			star = false;
+			filter.set('all');
+		}
+	};
+
+	const starred = () => {
+		toggleFilter('starred');
+	};
+
+	const all = () => {
+		toggleFilter('all');
+	};
 </script>
 
 <section class="mb-2 h-40 sticky top-0 bg-base-100">
@@ -38,7 +61,18 @@
 	</div>
 	<!-- Chips -->
 	<div class="flex justify-start items-center gap-3">
-		<button class="btn btn-outline btn-accent btn-sm">All</button>
-		<button class="btn btn-outline btn-accent btn-sm">Starred</button>
+		<button class="btn btn-outline btn-accent btn-sm" on:click={all} class:active={showAll}
+			>All</button
+		>
+		<button class="btn btn-outline btn-accent btn-sm" on:click={starred} class:active={star}
+			>Starred</button
+		>
 	</div>
 </section>
+
+<style>
+	.active {
+		color: black;
+		background-color: #fdf8f8;
+	}
+</style>
