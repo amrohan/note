@@ -12,7 +12,9 @@
 			// If the search term is empty, return all notes
 			return await db.notes.filter((note) => note.isDeleted === false).toArray();
 		} else if (filterValue === 'starred') {
-			return await db.notes.filter((note) => note.star === true).toArray();
+			return await db.notes
+				.filter((note) => note.star === true && note.isDeleted === false)
+				.toArray();
 		} else if (filterValue === 'all') {
 			return await db.notes
 				.filter(
