@@ -25,24 +25,7 @@
 	};
 </script>
 
-<section class="mb-2 h-40 sticky top-0 bg-base-100">
-	<div class="flex justify-between items-center">
-		<h1 class="mb-2 mt-2">Notes</h1>
-		<a href="/add" class="btn btn-sm btn-square btn-outline">
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				width="24"
-				height="24"
-				viewBox="0 0 24 24"
-				fill="none"
-				stroke="currentColor"
-				stroke-width="2"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				class="size-5"><path d="M5 12h14" /><path d="M12 5v14" /></svg
-			>
-		</a>
-	</div>
+<section class="mb-2 h-28 sticky top-0 bg-base-100">
 	<div class="navbar bg-base-100 p-0 mt-0">
 		<label class="input input-accent bg-zinc-800 border-0 flex items-center gap-2 w-full">
 			<input type="text" id="search" class="grow" placeholder="Search" bind:value={$search} />

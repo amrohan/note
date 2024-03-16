@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { liveQuery } from 'dexie';
 	import { search, filter, db } from '$lib';
-	import { onMount } from 'svelte';
 	import { toast } from 'svoast';
 
 	$: notes = liveQuery(async () => {

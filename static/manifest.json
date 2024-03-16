@@ -1,5 +1,5 @@
 {
-	"name": "Notie App",
+	"name": "Notie",
 	"short_name": "A simple note taking app",
 	"start_url": "/",
 	"display": "standalone",
