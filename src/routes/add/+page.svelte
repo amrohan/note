@@ -1,16 +1,16 @@
 <script lang="ts">
 	import { db } from '$lib';
 	import { toast } from 'svoast';
-	let notetitle = 'Untitled';
-	let noteContent = 'default content';
+	let notetitle: string;
+	let noteContent: string;
 	let archivedNote = false;
 	let starred = false;
 	let existingNote = false;
 	let existingNoteId;
 
 	async function saveNote() {
-		const title = notetitle;
-		const content = noteContent;
+		const title = notetitle || 'Untitled';
+		const content = noteContent || 'default content';
 		const date = new Date().toLocaleDateString();
 		const star = starred;
 		const archived = archivedNote;

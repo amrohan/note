@@ -25,9 +25,11 @@
 	};
 </script>
 
-<section class="mb-2 h-28 sticky top-0 bg-base-100">
+<section class="mb-2 h-28 sticky top-0">
 	<div class="navbar bg-base-100 p-0 mt-0">
-		<label class="input input-accent bg-zinc-800 border-0 flex items-center gap-2 w-full">
+		<label
+			class="input input-accent bg-[#0A0A0A] border border-[#242424] flex items-center gap-2 w-full"
+		>
 			<input type="text" id="search" class="grow" placeholder="Search" bind:value={$search} />
 			<svg
 				xmlns="http://www.w3.org/2000/svg"

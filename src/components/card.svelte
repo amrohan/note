@@ -37,17 +37,20 @@
 </script>
 
 <!-- Card contents -->
-<div class="mb-20">
+<div class="mb-20 flex flex-col justify-start items-start gap-2 w-full">
 	{#if $notes}
 		{#each $notes as note (note.id)}
 			<!-- pass value of id like edit/id -->
-			<div class="h-16 rounded-lg mb-1 bg-zinc-900 p-2 flex justify-between items-start">
+
+			<div
+				class="h-16 w-full rounded-lg mb-1 bg-[#0A0A0A] border border-[#242424] p-2 flex justify-between items-start animate-fade"
+			>
 				<a
 					href="edit/{note.id}"
 					class="no-underline flex flex-col justify-center items-start h-14 w-10/12"
 				>
 					<h4 class="m-0">{note.title}</h4>
-					<p class="text-accent font-semibold mt-0 text-xs">{note.date}</p>
+					<p class="text-zinc-500 font-semibold mt-0 text-xs">{note.date}</p>
 				</a>
 
 				<div class="grid place-content-center h-12 w-2/12 z-40">

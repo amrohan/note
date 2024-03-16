@@ -39,6 +39,7 @@
 	"type": "module",
 	"dependencies": {
 		"dexie": "^4.0.1-beta.14",
-		"dexie-export-import": "^4.1.1"
+		"dexie-export-import": "^4.1.1",
+		"tailwindcss-animated": "^1.0.1"
 	}
 }

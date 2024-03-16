@@ -29,7 +29,7 @@
 	}
 </script>
 
-<div>
+<section class="animate-fade-right animate-duration-500 animate-ease-in-out">
 	<h1 class="mb-2 mt-2">Settings</h1>
 
 	<div class="flex flex-col w-full lg:flex-row mt-10">
@@ -49,4 +49,4 @@
 			<button on:click={exportDatabse} class="btn btn-primary btn-sm">Export</button>
 		</div>
 	</div>
-</div>
+</section>

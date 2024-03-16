@@ -20,7 +20,7 @@ export default {
 					secondary: '#00cafc',
 					accent: '#A1A1AA',
 					neutral: '#221d27',
-					'base-100': '#121212',
+					'base-100': '#000000',
 					info: '#00c3f4',
 					success: '#00f48e',
 					warning: '#f46c00',
@@ -30,5 +30,5 @@ export default {
 			'dark'
 		]
 	},
-	plugins: [require('daisyui'), require('@tailwindcss/typography')]
+	plugins: [require('daisyui'), require('@tailwindcss/typography'), require('tailwindcss-animated')]
 };
