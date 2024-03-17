@@ -129,12 +129,12 @@
 						type="text"
 						name="title"
 						placeholder="Untitled"
-						class="bg-transparent w-full border-0 text-3xl border-zinc-800 focus:outline-none placeholder:text-3xl placeholder:dark:text-zinc-600 placeholder:dark:font-bold"
+						class="bg-transparent text-white w-full border-0 text-3xl border-zinc-800 focus:outline-none placeholder:text-3xl placeholder:dark:text-zinc-600 placeholder:dark:font-bold"
 					/>
 				</div>
 			</main>
 			<textarea
-				class="w-full max-h-svh min-h-svh p-2 bg-transparent border-0 border-zinc-800 focus:outline-none placeholder-zinc-900 placeholder:text-zinc-600"
+				class="w-full max-h-svh min-h-svh text-zinc-200 p-2 bg-transparent border-0 border-zinc-800 focus:outline-none placeholder-zinc-900 placeholder:text-zinc-600"
 				placeholder="Start typing..."
 				bind:value={note.content}
 				on:input={() => {
